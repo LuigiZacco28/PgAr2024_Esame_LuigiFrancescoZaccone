@@ -20,17 +20,17 @@ public class ArnaldoWestMain {
             }
         } while (numGiocatori < 4 || numGiocatori > 7);
         
-        List<Giocatore> giocatori = new ArrayList<>();
-        for (int i = 1; i <= numGiocatori; i++) {
-            giocatori.add(new Giocatore("Giocatore " + i, null)); // Il ruolo viene assegnato casualmente
-        }
+       
         
        // Crea una nuova partita con il numero di giocatori specificato
         Partita partita = new Partita(numGiocatori);
         
         // Stampare i giocatori con i rispettivi ruoli
         partita.stampaGiocatoriConRuoli();
-           
+        for (Giocatore giocatore : partita.getGiocatori()) {
+        partita.assegnaCarte(giocatore);
+        }
+        partita.stampaCarteDeiGiocatori();
 
     }
 }
