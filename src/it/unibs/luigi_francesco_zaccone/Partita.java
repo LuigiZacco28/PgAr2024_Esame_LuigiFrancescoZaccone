@@ -121,30 +121,32 @@ public class Partita {
     
     public List<Integer> calcolaGiocatoriRaggiungibili(int posizioneCorrente, int distanza) {
         List<Integer> giocatoriRaggiungibili = new ArrayList<>();
-        
+
+        System.out.println("Giocatori raggiungibili in avanti:");
         // Giocatori raggiungibili in avanti
         for (int i = 1; i <= distanza; i++) {
             int indice = (posizioneCorrente + i) % numGiocatoriAttuali;
             giocatoriRaggiungibili.add(indice);
+            System.out.println(giocatori.get(indice).getNome());
         }
         
+        System.out.println("Giocatori raggiungibili indietro:");
         // Giocatori raggiungibili indietro
         for (int i = 1; i <= distanza; i++) {
             int indice = (posizioneCorrente - i + numGiocatoriAttuali) % numGiocatoriAttuali;
             giocatoriRaggiungibili.add(indice);
+            System.out.println(giocatori.get(indice).getNome());
         }
         
         return giocatoriRaggiungibili;
     }
+
     
     public void giocaBang(Giocatore giocatore) {
     List<Carta> carteInMano = giocatore.getCarteInMano();
     for (Carta carta : carteInMano) {
     	if (carta.getTipo().equalsIgnoreCase("Bang")) {
-    		scegliBersaglio(selezionaArma(giocatore));  		
-        }else {
-            System.out.println("Non hai neanche una carta 'Bang'!");
-            break;
+    		calcolaGiocatoriRaggiungibili(giocatori.indexOf(giocatore), selezionaArma(giocatore));  		
         }
     }
     System.out.println(); // Aggiungi una riga vuota per separare i giocatori
@@ -162,7 +164,7 @@ public class Partita {
                 	
                     break;
                 case 2: // gioca carta
-                	giocaBang();
+                	giocaBang(giocatore);
                     break;
                 default:
                     System.out.println("Inserire un valore corretto");
