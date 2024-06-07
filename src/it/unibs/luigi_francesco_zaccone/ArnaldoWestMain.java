@@ -1,6 +1,7 @@
 package it.unibs.luigi_francesco_zaccone;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,7 +31,15 @@ public class ArnaldoWestMain {
         for (Giocatore giocatore : partita.getGiocatori()) {
         partita.assegnaCarte(giocatore);
         }
-        partita.stampaCarteDeiGiocatori();
+
+        for (Giocatore giocatore : partita.getGiocatori()) {
+        	partita.stampaCarteDeiGiocatori(giocatore);
+            }
+        
+        
+        for (Giocatore giocatore : partita.getGiocatori()) {
+        	partita.turnoGiocatore(giocatore);
+            }
 
     }
 }

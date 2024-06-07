@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Mazzo {
+	
 	private List<Carta> carte;
 	private final String BORDO_B = "Bordo Blu";
     private final String BORDO_M = "Bordo Marrone";
