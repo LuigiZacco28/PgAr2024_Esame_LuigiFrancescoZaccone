@@ -1,4 +1,4 @@
-package it.unibs.pgar2024_esame_luigi_francesco_zaccone;
+package it.unibs.luigi_francesco_zaccone;
 
 import java.util.ArrayList;
 import java.util.Collections;
